@@ -17,5 +17,6 @@ public class StockDTO {
     private String categoria; // categoria
     private String imagem; //
     private Integer categoriaDoItem; // td_categoria_id_categoria_item
+    private String Descricao;
 
 }
