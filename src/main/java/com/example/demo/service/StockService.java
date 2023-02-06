@@ -9,6 +9,7 @@ import com.example.demo.repository.StockRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,17 +32,21 @@ public class StockService {
         return stockRepository.findByPiece(id);
     }
 
+    @Transactional
     public Stock createDonation(Stock stock) {
         LOGGER.info(stock.toString());
         if(stockRepository.createDonation(stock) == 0){
+            new Throwable("erro na doação");
             return null;
         }
         return stock;
     }
 
+    @Transactional
     public Stock requestDonation(Stock stock) {
         LOGGER.info(stock.toString());
         if(stockRepository.requestDonation(stock) == 0){
+            new Throwable("erro no request");
             return null;
         }
         return stock;
@@ -55,8 +60,10 @@ public class StockService {
         return stockRepository.findCategoriabyPiece(id);
     }
 
+    @Transactional
     public Integer deletePeca(Integer id) {
         if(stockRepository.deletePeca(id) == 0){
+            new Throwable("erro no request");
             return null;
         }
         return id;
