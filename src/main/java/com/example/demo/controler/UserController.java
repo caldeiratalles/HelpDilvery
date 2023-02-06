@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/userStock")
+@CrossOrigin("138.197.104.106")
 public class UserController {
 
     private final StockService stockService;

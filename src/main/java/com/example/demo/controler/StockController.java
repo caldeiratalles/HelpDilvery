@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/stock")
+@CrossOrigin("138.197.104.106")
 public class StockController {
 
     private final StockService stockService;
